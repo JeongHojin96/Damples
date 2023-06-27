@@ -1,0 +1,213 @@
+.main.wrap {
+}
+.title_tab {
+  display: flex;
+  align-items: center;
+}
+
+.course_tab {
+  /* margin: 0px auto; */
+  /* margin-bottom: 0px; */
+  /* padding-left: 70px; */
+  justify-content: center;
+  margin-left: auto;
+  flex-grow: 1;
+  /* display: flex; */
+}
+.course_tab li {
+  font-size: 25px;
+  text-align: center;
+}
+.course_tab a {
+  display: inline-block;
+}
+.main_tour_title {
+  font-family: "GangwonEduPowerExtraBoldA";
+  font-size: 40px;
+  color: #0c5c00;
+  margin-right: -210px;
+}
+.main_tour_title:hover {
+  cursor: pointer;
+}
+
+.line {
+  height: 3px;
+  background-color: #0c5c00;
+  margin-bottom: 50px;
+  /* width: 70%; */
+}
+
+.sogae_hp_title {
+  font-size: 50px;
+  font-family: "GangwonEduPowerExtraBoldA";
+  /* text-align: center; */
+  color: #0c5c00;
+  display: inline-block;
+  width: 250px;
+}
+.sogae_hp_title:hover {
+  cursor: pointer;
+}
+
+.title_tab {
+  margin-bottom: 30px;
+}
+.sogae_title {
+  font-family: "LINESeedKR-Rg";
+}
+.sogae_main {
+  padding: 25px 5px 25px 5px;
+}
+
+.sogae_main_title {
+  font-size: 35px;
+  font-family: "LINESeedKR-Bd";
+  color: black;
+  display: inline-flex;
+  align-items: end;
+  margin-bottom: 5px;
+}
+
+.sogae_sub_title {
+  font-size: 20px;
+  font-family: "LINESeedKR-Bd";
+  padding-left: 30px;
+  padding-bottom: 5px;
+  align-items: center;
+  color: #0c5c00;
+}
+
+.sogae_cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0c5c00;
+}
+.sogae_cont_info {
+  font-size: 20px;
+  font-family: "LINESeedKR-Bd";
+  /* white-space: pre; */
+  margin-left: 10px;
+  width: 450px;
+}
+
+.sogae_cont_info ul li {
+  margin-bottom: 10px;
+}
+
+.sogae_cont_info ul li > span {
+  color: #0c5c00;
+}
+
+.sogae_cont_info ul li > span::before {
+  background: url(../doc/titbefore.png) no-repeat 0px 3px;
+  content: "";
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin-right: 4px;
+}
+
+.sogae_cont_info ul li > p {
+  padding-left: 35px;
+}
+
+.sogae_wrap {
+  margin-bottom: 50px;
+}
+.sogae_cont_text {
+  font-size: 20px;
+  font-family: "LINESeedKR-Rg";
+  margin: 20px 0 20px 0;
+  text-indent: 1em;
+  display: block;
+}
+
+.sogae_slide_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.symbol {
+  text-align: center;
+}
+
+.symbol img {
+  margin-top: 50px;
+}
+.symbol img:hover {
+  cursor: pointer;
+}
+.clickbox {
+  margin-top: 30px;
+  font-size: 50px;
+  display: block;
+  color: black;
+  /* padding-top: 30px; */
+  font-family: "SBAggroB";
+}
+
+.swiper-slide img {
+  width: 568px;
+  height: 368px;
+}
+
+.sogae_info > li:hover {
+  cursor: pointer;
+}
+
+.list_drop {
+  display: inline-block;
+  transform: translateX(680px);
+  width: 200px;
+  height: 70px;
+  /* border: 2px solid red; */
+  text-decoration: none;
+}
+.list_drop {
+  cursor: pointer;
+}
+.list_drop > ul {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+.list_drop > ul > li {
+  font-family: "GangwonEduPowerExtraBoldA";
+  font-size: 40px;
+  color: #0c5c00;
+  text-align: center;
+  height: 100px;
+}
+.list_drop > ul > li a {
+  color: #0c5c00;
+}
+
+.list_drop > ul > li > ul > li {
+  font-size: 30px;
+  height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  background-color: #fff;
+  line-height: 25px;
+}
+.list_drop > ul > li > ul {
+  width: 100%;
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  background: white;
+  color: black;
+  margin: auto 0;
+  text-align: center;
+  border: 2px solid #0c5c00;
+}
+.list_drop > ul > li:hover > ul {
+  display: block;
+}
+.list_drop > ul > li > ul > li:hover {
+  cursor: pointer;
+  background-color: #e0efdc;
+}

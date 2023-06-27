@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인화면</title>
+    <link rel="stylesheet" href="../css/main_001.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      //   $(document).ready(function () {
+      //     $(function () {
+      //      $('.head_menu_tab > li:first-child').removeClass('active');
+      //      $('#list01_1').removeClass('active');
+
+      //      $('.head_menu_tab > li > a').on('click', function (e) {
+      //        let tabNum = $(this).parent('li').index() + 1;
+      //        $('.head_menu_tab > li, #list01_1, .maib_tab_list01').removeClass('active');
+      //        $(this).parent('li').addClass('active');
+      //        $('#list01_' + tabNum).addClass('active');
+      //        return false;
+      //      });
+      //   });
+      // });
+
+
+      //   $(document).ready(function () {
+      //   $(".head_menu_tab > li > a").on("click", function (e) {
+      //     e.preventDefault();
+      //     let tabNum = $(this).parent("li").index() + 1;
+      //     $(".head_menu_tab > li, .maib_tab_list01").removeClass("active");
+      //     $(this).parent("li").addClass("active");
+      //     $("#list01_" + tabNum).addClass("active");
+
+      //     // 숨기고 싶은 클래스를 추가하면 됩니다.
+      //     $(".dam_main").hide();
+      //   });
+      // });
+
+      $(document).ready(function () {
+          $(function () {
+
+           $('.main_tab > li:first-child').addClass('active');
+           $('#main_menu01').addClass('active');
+
+           $('.main_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.main_tab > li, #main_menu01, .main_tab_menu').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#main_menu0' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+
+// 추천코스이벤트
+      // $(document).ready(function () {
+      //     $(function () {
+      //      $('.course_tab > li:first-child').addClass('active');
+      //      $('#course_1').addClass('active');
+
+      //      $('.course_tab > li > a').on('click', function (e) {
+      //        let tabNum = $(this).parent('li').index() + 1;
+      //        $('.course_tab > li, #course_1, .course_cont').removeClass('active');
+      //        $(this).parent('li').addClass('active');
+      //        $('#course_' + tabNum).addClass('active');
+      //        return false;
+      //      });
+      //   });
+      // });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+          function convertTime() {
+            var now = new Date();
+
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+
+            return year + " 년 " + month + " 월 " + date + " 일 ";
+          }
+
+          var currentTime = convertTime();
+          $(".nowtime").append(currentTime);
+        });
+    </script>
+
+    <script>
+        let url =  "https://api.openweathermap.org/data/2.5/weather?q=damyang&appid=6cf9a99f768ce493e58c351ccf43588a&lang=kr&units=metric";
+
+        fetch(url)
+          .then((response) => {
+            return response.json();
+          })
+          .then((json) => {
+            console.log(json);
+
+            let result =
+              "현재온도 : " +
+              Math.floor(json.main.temp) +
+              "°C<br>"; //소수점 버림 온도를 찍어줌
+            let icon = json.weather[0].icon; //아이콘 받아옴
+            document.getElementById("humidity").innerHTML = result; //result를 humidity라는 id를 가진 span에 innerHTML로 표시
+            let iconurl = document.getElementById("ic"); //img id를 iconurl이라는 이름으로 받아옴
+            iconurl.src = "../img/icon/" + icon +".png"; //iconurl로 src를 설정해줌
+          });
+    </script>
+
+    <style>
+       .main_wrap .maib_tab_list01 {display: none;}
+       .main_wrap .maib_tab_list01.active {display: block;}
+
+       .main_tab_menu {display: none;}
+       .main_tab_menu.active {display: block;}
+
+       /* .course_cont {display: none;}
+       .course_cont.active {display: block;} */
+
+
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <div class="header">
+        <h3 onclick="location.href='../html/main_001.html'">담양 HOT PLACE!</h2>
+        <h1 onclick="location.href='../html/main_001.html'">DAMPLES</h1>
+
+        <div class="head_menu">
+          <ul class="head_menu_tab">
+              <li class="active"><a href="../sogae/sogae_001.html">소개</a>
+                <ul class="head_drop">
+                  <li><a href="../sogae/sogae_001.html">담양군 소개</a></li>
+                  <li><a href="../sogae/sogae_002.html">주요 관광지</a></li>
+                </ul>  
+              </li>
+              <li><a href="../html/sosik_001.html">소식</a>
+                <ul class="head_drop">
+                  <li><a href="../html/sosik_001.html">담양군 소식</a></li>
+                  <li><a href="../html/event.html">행사일정</a></li>
+                </ul>
+              </li>
+              <li><a href="../html/course_001.html">코스추천</a>
+                <!-- <ul class="head_drop">
+                  <li><a href="#">서브 메뉴 7</a></li>
+                  <li><a href="#">서브 메뉴 8</a></li>
+                  <li><a href="#">서브 메뉴 9</a></li>
+                </ul> -->
+              </li>
+              <li><a href="../html/review_001.html">리뷰</a>
+                <!-- <ul class="head_drop">
+                  <li><a href="#">서브 메뉴 10</a></li>
+                  <li><a href="#">서브 메뉴 11</a></li>
+                  <li><a href="#">서브 메뉴 12</a></li>
+                </ul> -->
+              </li>
+          </ul>
+
+            <div class="search_box">
+              <input type="text" placeholder="검색어를 입력해주세요">
+              <button type="button" class="btn_search">
+                <img src="../doc/search.png" alt="검색">
+              </button>
+            </div>
+        </div>
+
+      </div>
+      <div class="container">
+
+        <div class="main_wrap">
+          <div class="sosik_main">
+            <img src="../doc/sosik_title.png" alt="담양군 소식" style="margin-bottom: 10px;">
+            <ul class="sosik_info">
+                <li>
+                  <a href="#">
+                    <p class="sosik_title">
+                      <!-- 공지면 .notice 일반게시글이면 .common -->
+                      <span class="notice">공지</span>
+                      2023년 여성회관 상반기 교육프로그램 수강생 및 강사 모집 안내</p>
+                    <p class="sosik_sub">집에가고싶다 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, saepe! Sequi cumque, veritatis odit voluptatum, perferendis eveniet illo eos ipsum natus quis impedit temporibus laborum repudiandae, ex deleniti id praesentium!</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <p class="sosik_title">
+                      <span class="common">1234</span>
+                      2023년 여성회관 상반기 교육프로그램 수강생 및 강사 모집 안내</p>
+                    <p class="sosik_sub">집에가고싶다 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, saepe! Sequi cumque, veritatis odit voluptatum, perferendis eveniet illo eos ipsum natus quis impedit temporibus laborum repudiandae, ex deleniti id praesentium!</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <p class="sosik_title">
+                      <span class="common">2134</span>
+                      2023년 여성회관 상반기 교육프로그램 수강생 및 강사 모집 안내</p>
+                    <p class="sosik_sub">집에가고싶다 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, saepe! Sequi cumque, veritatis odit voluptatum, perferendis eveniet illo eos ipsum natus quis impedit temporibus laborum repudiandae, ex deleniti id praesentium!</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <p class="sosik_title">
+                      <span class="common">124</span>
+                      2023년 여성회관 상반기 교육프로그램 수강생 및 강사 모집 안내</p>
+                    <p class="sosik_sub"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, saepe! Sequi cumque, veritatis odit voluptatum, perferendis eveniet illo eos ipsum natus quis impedit temporibus laborum repudiandae, ex deleniti id praesentium!</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <p class="sosik_title">
+                      <span class="common">45546</span>
+                      2023년 여성회관 상반기 교육프로그램 수강생 및 강사 모집 안내</p>
+                    <p class="sosik_sub">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, saepe! Sequi cumque, veritatis odit voluptatum, perferendis eveniet illo eos ipsum natus quis impedit temporibus laborum repudiandae, ex deleniti id praesentium!</p>
+                  </a>
+                </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div id="footer">
+      </div>
+    </div>
+    
+  </body>
+</html>
+
+

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS 코드 */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .main_wrap {
+      margin-top: 20px;
+    }
+
+    .sogae_main {
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .main_tab_list01 .main_tour_title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .title_tab {
+      margin-bottom: 20px;
+    }
+
+    .course_tab li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .course_tab li.active a {
+      font-weight: bold;
+    }
+
+    .sogae_info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sogae_info li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .sogae_info li img {
+      width: 120px;
+      height: 80px;
+      margin-right: 10px;
+    }
+
+    .sogae_info li .sogae_title span {
+      display: block;
+      font-weight: bold;
+    }
+
+    #detail_page {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      background-color: #f2f2f2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    #detail_page .content {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #detail_page .content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #detail_page .content img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    #detail_page .content p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    #back_button {
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    // JavaScript 코드
+    window.addEventListener('DOMContentLoaded', function() {
+      var listItem = document.querySelectorAll('.sogae_info li');
+      var detailPage = document.getElementById('detail_page');
+      var detailTitle = document.getElementById('detail_title');
+      var detailImage = document.getElementById('detail_image');
+      var detailDescription = document.getElementById('detail_description');
+      var backButton = document.getElementById('back_button');
+
+      listItem.forEach(function(item) {
+        item.addEventListener('click', function() {
+          var title = this.querySelector('.sogae_title span:first-child').textContent;
+          var image = this.querySelector('img').getAttribute('src');
+          var description = this.querySelector('.sogae_title span:last-child').textContent;
+
+          detailTitle.textContent = title;
+          detailImage.src = image;
+          detailDescription.textContent = description;
+
+          detailPage.style.display = 'block';
+        });
+      });
+
+      backButton.addEventListener('click', function() {
+        detailPage.style.display = 'none';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="main_wrap">
+      <div class="sogae_main">
+        <div class="main_tab_list01" id="list01_3">
+          <h3 class="main_tour_title">주요 관광지</h3>
+          <div class="title_tab">
+            <ul class="course_tab">
+              <li class="active"><a href="#">핫플레이스</a></li>
+              <li><a href="#">먹방</a></li>
+              <li><a href="#">숙박</a></li>
+            </ul>
+          </div>
+          <div class="course_cont active" id="course_01">
+            <ul class="sogae_info">
+              <li>
+                <img src="../img/hotplace/죽녹원_여름1.jpg" alt="죽녹원이미지">
+                <p class="sogae_title">
+                  <span>죽녹원</span>
+                  <span>생태전시관, 인공폭포, 생태연못, 야외공연장과 2.2km에 달하는 8가지 주제의 산책로를 통한 다양한 테마의 여행 구성에 적합</span>
+                </p>
+              </li>
+              <li>
+                <img src="../img/hotplace/소쇄원_광풍각.jpg" alt="소쇄원이미지">
+                <p class="sogae_title">
+                  <span>소쇄원</span>
+                  <span>한국의 민간정원 중에서 최고라는 칭송을 받는 소쇄원은 500년 가까운 세월이 흘러간 오늘까지도 많은 이들로부터 사랑을 받고있는 곳</span>
+                </p>
+              </li>
+              <li>
+                <img src="../img/hotplace/가마골.jpg" alt="가마골이미지">
+                <p class="sogae_title">
+                  <span>가마골</span>
+                  <span>자연적으로 만들어진 계곡과 그 길을 따라 조성된 생태공원을 동시에 즐길 수 있고, 주변 가까운 곳에 식당과 숙소가 있어 힐링과 휴식 그리고 가족 나들이에 적합</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="detail_page">
+    <div class="content">
+      <h2 id="main_title">핫플레이스</h2>
+      <h2 id="detail_title"></h2>
+      <img id="detail_image" alt="">
+      <p id="detail_description"></p>
+      <button id="back_button">뒤로 가기</button>
+    </div>
+  </div>
+</body>
+</html>

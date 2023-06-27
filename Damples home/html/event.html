@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이달의 행사</title>
+    <link rel="stylesheet" href="../css/event.css">
+    <link rel="stylesheet" href="../css/main_001.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+              $(document).ready(function () {
+          $(function () {
+           $('.prod_tab > li:first-child').removeClass('active');
+           $('#list01_1').removeClass('active');
+
+           $('.prod_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.prod_tab > li, #list01_1, .prod_list01').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#list01_' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+
+
+        $(document).ready(function () {
+        $(".prod_tab > li > a").on("click", function (e) {
+          e.preventDefault();
+          let tabNum = $(this).parent("li").index() + 1;
+          $(".prod_tab > li, .prod_list01").removeClass("active");
+          $(this).parent("li").addClass("active");
+          $("#list01_" + tabNum).addClass("active");
+
+          // 숨기고 싶은 클래스를 추가하면 됩니다.
+          $(".dam_main").hide();
+        });
+      });
+
+      $(document).ready(function () {
+          $(function () {
+
+           $('.main_tab > li:first-child').addClass('active');
+           $('#main_pro01').addClass('active');
+
+           $('.main_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.main_tab > li, #main_pro01, .main_tab_pro').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#main_pro0' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+          <h3 onclick="location.href='../html/main_001.html'">담양 HOT PLACE!</h2>
+          <h1 onclick="location.href='../html/main_001.html'">DAMPLES</h1>
+  
+          <div class="head_menu">
+            <ul class="head_menu_tab">
+                <li class="active"><a href="../sogae/sogae_001.html">소개</a>
+                  <ul class="head_drop">
+                    <li><a href="../sogae/sogae_001.html">담양군 소개</a></li>
+                    <li><a href="../sogae/sogae_002.html">주요 관광지</a></li>
+                  </ul>  
+                </li>
+                <li><a href="../html/sosik_001.html">소식</a>
+                  <ul class="head_drop">
+                    <li><a href="../html/sosik_001.html">담양군 소식</a></li>
+                    <li><a href="../html/event.html">행사일정</a></li>
+                  </ul>
+                </li>
+                <li><a href="../html/course_001.html">코스추천</a>
+                  <!-- <ul class="head_drop">
+                    <li><a href="#">서브 메뉴 7</a></li>
+                    <li><a href="#">서브 메뉴 8</a></li>
+                    <li><a href="#">서브 메뉴 9</a></li>
+                  </ul> -->
+                </li>
+                <li><a href="../html/review_001.html">리뷰</a>
+                  <!-- <ul class="head_drop">
+                    <li><a href="#">서브 메뉴 10</a></li>
+                    <li><a href="#">서브 메뉴 11</a></li>
+                    <li><a href="#">서브 메뉴 12</a></li>
+                  </ul> -->
+                </li>
+            </ul>
+  
+              <div class="search-box">
+                <input type="text" placeholder="검색어를 입력해주세요">
+                <button type="button" class="btn_search">
+                  <img src="../doc/search.png" alt="검색">
+                </button>
+              </div>
+          </div>
+  
+        </div>
+        <div class="container">
+          <div class="prod_wrap">
+            <div class="rap">
+                <div class="event_header">
+                    <div class="btn prevDay"></div>
+                   <h2 class='dateTitle'></h2>
+                   <div class="btn nextDay"></div>
+                 </div>
+                 
+                 <div class="grid dateHead">
+                   <div>일</div>
+                   <div>월</div>
+                   <div>화</div>
+                   <div>수</div>
+                   <div>목</div>
+                   <div>금</div>
+                   <div>토</div>
+                 </div>
+             
+                 <div class="grid dateBoard"></div>
+            </div>
+          </div>
+        </div>
+        <script>
+            // 임시 데이터
+          const data = [
+            { date: '2023-06-15', content: '행사1' },
+            { date: '2023-06-03', content: '행사2' },
+            { date: '2023-06-15', content: '행사3' },
+            { date: '2023-06-26', content: '행사4' },
+            { date: '2023-06-21', content: '행사5' },
+            { date: '2023-06-27', content: '발표하는날이에용' },
+            { date: '2023-07-31', content: '집에가고싶다' },
+          ];
+
+          
+          // 데이터 가공
+          const calendarList = data.reduce(
+            (acc, v) => 
+              ({ ...acc, [v.date]: [...(acc[v.date] || []), v.content] })
+            , {}
+          );
+          
+          // pad method
+          Number.prototype.pad = function() {
+            return this > 9 ? this : '0' + this;
+          }
+          
+          // 달력 생성
+          const makeCalendar = (date) => {
+            // 현재의 년도와 월 받아오기
+            const currentYear = new Date(date).getFullYear();
+            const currentMonth = new Date(date).getMonth() + 1;
+          
+            // 한달전의 마지막 요일
+          const firstDay = new Date(date.setDate(1)).getDay();
+            // 현재 월의 마지막 날 구하기
+            const lastDay = new Date(currentYear, currentMonth, 0).getDate();
+          
+            // 남은 박스만큼 다음달 날짜 표시
+            const limitDay = firstDay + lastDay;
+            const nextDay = Math.ceil(limitDay / 7) * 7;
+          
+            let htmlDummy = '';
+
+            // 한달전 날짜 표시하기
+            for (let i = 0; i < firstDay; i++) {
+              htmlDummy += `<div class="noColor"></div>`;
+            }
+          
+            // 이번달 날짜 표시하기
+            for (let i = 1; i <= lastDay; i++) {
+              const date = `${currentYear}-${currentMonth.pad()}-${i.pad()}`;
+              
+              htmlDummy += `
+                <div>
+                  ${i}
+                  <p>${calendarList[date]?.join('</p><p>') || ''}</p>
+                </div>
+              `;
+            }
+          
+            // 다음달 날짜 표시하기
+            for (let i = limitDay; i < nextDay; i++) {
+              htmlDummy += `<div class="noColor"></div>`;
+            }
+            
+            document.querySelector(`.dateBoard`).innerHTML = htmlDummy;
+            document.querySelector(`.dateTitle`).innerText = `${currentYear}년 ${currentMonth}월`;
+          }
+          
+          const date = new Date();
+          
+          makeCalendar(date);
+          
+          // 이전달 이동
+          document.querySelector(`.prevDay`).onclick = () => {
+          makeCalendar(new Date(date.setMonth(date.getMonth() - 1)));
+          }
+          
+          // 다음달 이동
+          document.querySelector(`.nextDay`).onclick = () => {
+          makeCalendar(new Date(date.setMonth(date.getMonth() + 1)));
+          }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인화면</title>
+    <link rel="stylesheet" href="../css/main_001.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(document).ready(function () {
+          $(function () {
+
+           $('.main_tab > li:first-child').addClass('active');
+           $('#main_menu01').addClass('active');
+
+           $('.main_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.main_tab > li, #main_menu01, .main_tab_menu').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#main_menu0' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+
+// 추천코스이벤트
+      $(document).ready(function () {
+          $(function () {
+           $('.course_tab > li:first-child').addClass('active');
+           $('#course_1').addClass('active');
+
+           $('.course_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.course_tab > li, #course_1, .course_cont').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#course_' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+
+    </script>
+
+    <style>
+       .main_wrap .maib_tab_list01 {display: none;}
+       .main_wrap .maib_tab_list01.active {display: block;}
+
+       .main_tab_menu {display: none;}
+       .main_tab_menu.active {display: block;}
+
+       .course_cont {display: none;}
+       .course_cont.active {display: block;}
+
+
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <div class="header">
+        <h3 onclick="location.href='../html/main_001.html'">담양 HOT PLACE!</h2>
+        <h1 onclick="location.href='../html/main_001.html'">DAMPLES</h1>
+
+        <div class="head_menu">
+          <ul class="head_menu_tab">
+              <li class="active"><a href="../sogae/sogae_001.html">소개</a>
+                <ul class="head_drop">
+                  <li><a href="../sogae/sogae_001.html">담양군 소개</a></li>
+                  <li><a href="../sogae/sogae_002.html">주요 관광지</a></li>
+                </ul>  
+              </li>
+              <li><a href="../html/sosik_001.html">소식</a>
+                <ul class="head_drop">
+                  <li><a href="../html/sosik_001.html">담양군 소식</a></li>
+                  <li><a href="../html/event.html">행사일정</a></li>
+                </ul>
+              </li>
+              <li><a href="../html/course_001.html">코스추천</a>
+                <!-- <ul class="head_drop">
+                  <li><a href="#">서브 메뉴 7</a></li>
+                  <li><a href="#">서브 메뉴 8</a></li>
+                  <li><a href="#">서브 메뉴 9</a></li>
+                </ul> -->
+              </li>
+              <li><a href="../html/review_001.html">리뷰</a>
+                <!-- <ul class="head_drop">
+                  <li><a href="#">서브 메뉴 10</a></li>
+                  <li><a href="#">서브 메뉴 11</a></li>
+                  <li><a href="#">서브 메뉴 12</a></li>
+                </ul> -->
+              </li>
+          </ul>
+
+            <div class="search_box">
+              <input type="text" placeholder="검색어를 입력해주세요">
+              <button type="button" class="btn_search">
+                <img src="../doc/search.png" alt="검색">
+              </button>
+            </div>
+        </div>
+
+      </div>
+      <div class="container">
+
+        <div class="main_wrap">
+                    <div class="main_tab_list01" id="list01_3">
+            <img src="../doc/cource_title.png" alt="추천 코스">
+
+            <ul class="course_tab">
+              <li class="active"><a href="#">연령별</a></li>
+              <li><a href="#">반려동물동반</a></li>
+              <li><a href="#">키즈프렌드리</a></li>
+              <li><a href="#">무장애관광</a></li>
+              <li><a href="#">누구와함께</a></li>
+            </ul>
+
+            <div class="course_cont active" id="course_1">
+              <img src="../img/course/여행코스1.png" alt="연령별" width="720px">
+            </div>
+            <div class="course_cont" id="course_2">
+              <img src="../img/course/여행코스2.png" alt="반려동물동반" width="720px">
+            </div>
+            <div class="course_cont" id="course_3">
+              <img src="../img/course/여행코스3.png" alt="키즈프렌드리" width="720px">
+            </div>
+            <div class="course_cont" id="course_4">
+              <img src="../img/course/여행코스4.png" alt="무장애관광" width="720px">
+            </div>
+            <div class="course_cont" id="course_5">
+              <img src="../img/course/여행코스5.png" alt="부모님과함께" width="720px">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div id="footer">
+      </div>
+    </div>
+    
+  </body>
+</html>
+
+

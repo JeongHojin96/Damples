@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main_wrap">
+        <div class="sogae_main">
+          <div class="sogae_wrap">
+            <h2 class="sogae_hp_title" onclick="showDetails('#course_1')">
+              핫플레이스
+            </h2>
+            <div class="line"></div>
+            <div class="sogae_main_title">
+              죽녹원
+              <p class="sogae_sub_title">휴양림, 산림욕장</p>
+            </div>
+            <!-- <span class="sogae_cont_text">
+              생태전시관, 인공폭포, 생태연못, 야외공연장과 2.2km에 달하는 8가지 주제의 산책로를 통한 다양한 테마의 여행 구성에 적
+            </span> -->
+            <div class="sogae_slide_wrap">
+              <div class="swiper mySwiper">
+                <!-- 슬라이드 내용 생략 -->
+              </div>
+              <div class="sogae_cont_info">
+                <!-- 관광지 상세 정보 생략 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showDetails(courseId) {
+        // 관광지 상세 정보를 담고 있는 HTML 혹은 JSON 파일에서 데이터를 가져오는 AJAX 요청을 보낼 수도 있습니다.
+        // 이 예시에서는 예시 데이터를 사용하도록 합니다.
+        var detailsData = {
+          title: "죽녹원",
+          subTitle: "휴양림, 산림욕장",
+          address: "전남 담양군 담양읍 죽녹원로 119",
+          phoneNumber: "061-380-2680",
+          operatingHours: [
+            "(11 ~ 2월) 09:00 – 18:00",
+            "(3 ~ 10월) 09:00 - 19:00",
+          ],
+          admissionFees: [
+            "성인 3,000원 / 단체 2,400원",
+            "청소년,군인 1,500원 / 단체 1,000원",
+            "초등학생 1,000원 / 단체 600원",
+          ],
+        };
+
+        // 관광지 상세 정보를 동적으로 삽입합니다.
+        var titleElement = document.querySelector(".sogae_main_title");
+        titleElement.innerHTML = `
+      ${detailsData.title}
+      <p class="sogae_sub_title">${detailsData.subTitle}</p>
+    `;
+
+        var infoElement = document.querySelector(".sogae_cont_info");
+        infoElement.innerHTML = `
+      <ul>
+        <li>
+          <span>주소</span>
+          <p>${detailsData.address}</p>
+        </li>
+        <li>
+          <span>전화번호</span>
+          <p>${detailsData.phoneNumber}</p>
+        </li>
+        <li>
+          <span>영업시간</span>
+          ${detailsData.operatingHours.map((time) => `<p>${time}</p>`).join("")}
+        </li>
+        <li>
+          <span>입장료</span>
+          ${detailsData.admissionFees.map((fee) => `<p>${fee}</p>`).join("")}
+        </li>
+      </ul>
+    `;
+      }
+    </script>
+  </body>
+</html>
