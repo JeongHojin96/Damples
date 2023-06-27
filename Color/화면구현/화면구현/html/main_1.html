@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인화면</title>
+    <link rel="stylesheet" href="../css/main_1.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let tabHeader = document.getElementsByClassName("tab-header")[0];
+        let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
+        let tabBody = document.getElementsByClassName("tab-body")[0];
+        let mainContent = document.getElementsByClassName("main")[0];
+    
+        let tabsPane = tabHeader.getElementsByTagName("div");
+    
+        for (let i = 0; i < tabsPane.length; i++) {
+          tabsPane[i].addEventListener("click", function () {
+            // 메인 화면 숨기기
+            mainContent.style.display = "none";
+    
+            // 탭 선택 처리
+            tabHeader.getElementsByClassName("active")[0].classList.remove("active");
+            tabsPane[i].classList.add("active");
+    
+            // 탭 내용 보이기 처리
+            tabBody.getElementsByClassName("active")[0].classList.remove("active");
+            tabBody.getElementsByTagName("div")[i].classList.add("active");
+    
+            // 탭 인디케이터 위치 설정
+            tabIndicator.style.left = `calc(calc(100% / 3) * ${i})`;
+    
+            // 메인 화면 보이기
+            setTimeout(function () {
+              mainContent.style.display = "block";
+            }, 500);
+          });
+        }
+      });
+    </script>
+    
+    
+    <script>
+        $(document).ready(function () {
+          $(function () {
+           $('.prod_tab > li:first-child').removeClass('active');
+           $('#list01_1').removeClass('active');
+
+           $('.prod_tab > li > a').on('click', function (e) {
+             let tabNum = $(this).parent('li').index() + 1;
+             $('.prod_tab > li, #list01_1, .prod_list01').removeClass('active');
+             $(this).parent('li').addClass('active');
+             $('#list01_' + tabNum).addClass('active');
+             return false;
+           });
+        });
+      });
+    </script>
+    <style>
+       .prod_wrap .prod_list01 {display: none;}
+       .prod_wrap .prod_list01.active {display: block;}
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="header">
+        <h3 onclick="location.href='../html/main_1.html'">담양 HOT PLACE!</h2>
+        <h1 onclick="location.href='../html/main_1.html'">DAMPLES</h1>
+
+        <div class="menu-box">
+            <ul class="prod_tab">
+                <li class="active"><a href="#">소개</a></li>
+                <li><a href="#">소식</a></li>
+                <li><a href="#">코스추천</a></li>
+                <li><a href="#">리뷰</a></li>
+            </ul>
+        </div>
+
+      </div>
+      <div class="container">
+        <div class="prod_wrap">
+          <!-- <div class="tabs">
+            <div class="tab-header">
+              <div class="tab-active">
+                <i class="fa fa-code"></i> 핫플
+              </div>
+              <div>
+                <i class="fa fa-pencil-square-o"></i> 먹방
+              </div>
+              <div>
+                <i class="fa fa-bar-chart"></i> 숙박
+              </div>
+            </div>
+            <div class="tab-indicator"></div>
+            <div class="tab-body">
+              <div class="tab-active">
+                <h2>핫플</h2>
+                <img src="../doc/지도4.png" alt="지도" width="800px">
+              </div>
+              <div>
+                <h2>먹방<h2>
+                <img src="../doc/지도4.png" alt="지도" width="800px">
+              </div>
+              <div>
+                <h2>숙박<h2>
+                <img src="../doc/지도4.png" alt="지도" width="800px">
+              </div>
+            </div>
+          </div> -->
+          <div class="prod_list01 active" id="list01_1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque ea rerum magni voluptates velit ipsam magnam provident, iste veniam non corporis sed, neque, voluptatibus impedit libero quae officia! Saepe, a!
+          </div>
+          <div class="prod_list01" id="list01_2">
+            22
+          </div>
+
+          <div class="prod_list01" id="list01_3">
+            33
+          </div>
+
+          <div class="prod_list01" id="list01_4">
+            44
+          </div>
+        </div>
+
+        <!-- <div class="main-box">
+        </div> -->
+        <!-- <div class="event">
+          <p>이달의 행사</p>
+          <div class="event-box"></div>
+        </div> -->
+      </div>
+      <div id="footer">
+      </div>
+    </div>
+  </body>
+</html>

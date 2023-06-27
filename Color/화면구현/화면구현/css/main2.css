@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "SBAggroB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 200vh;
+  width: 100vw;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d9042;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+.title {
+  font-size: 60px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  font-family: "SBAggroB";
+}
+.title::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: #fff;
+  bottom: 0;
+}
+hr {
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+}
+.top {
+  width:100%;
+}
+.menu-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.menu {
+  width: 120px;
+  height: 70px;
+  background-color: #fff;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #1d9042;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "SBAggroB";
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+  
+}
+.search-input {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.search-button {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: none;
+  color: #1d9042;
+  cursor: pointer;
+}
+.map {
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  background: #1d9042;
+  color: #fff;
+  font-size: 20px;
+  font-family: "LINESeedKR-Bd";
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  min-height: 200vh;
+  position: relative;
+  width: 100%;
+
+}
+.map-menu {
+  width: 120px;
+  height: 50px;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #1d9042;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: solid 1px #000;
+}
+
+.grid {
+  list-style: none;
+  margin-left: -40px;
+}
+
+.gc {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: -0.25em;
+  min-height: 1px;
+  vertical-align: top;
+}
+
+.naccs {
+  position: relative;
+  max-width: 900px;
+  margin: 100px auto 0;
+}
+
+.naccs .map-menu div {
+  padding: 15px 20px 15px 40px;
+  margin-bottom: 0;
+  color: #000000;
+  background: #69bc92;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  font-weight: 700;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .map-menu div:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.naccs .map-menu div span.light {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 24px;
+  left: 15px;
+  background-color: #303f9f;
+  border-radius: 100%;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .map-menu div.active span.light {
+  background-color: #fbc02d;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  top: 0;
+  border-radius: 0;
+}
+
+.naccs .map-menu div.active {
+  color: #fbc02d;
+  padding: 15px 20px 15px 20px;
+}
+
+ul.nacc {
+  position: relative;
+  height: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.nacc li {
+  opacity: 0;
+  transform: translateX(50px);
+  position: absolute;
+  list-style: none;
+}
+
+ul.nacc li.active {
+  transition-delay: 0.3s;
+  z-index: 2;
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+ul.nacc li p {
+  margin: 0;
+}
+footer {
+	width: 100%;
+	height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+	bottom: 0px;
+	position: absolute;
+}
+.main {
+  background-color: #fff;
+  height: 1200px;
+  width: 1500px;
+  margin: 0 auto;
+
+}
